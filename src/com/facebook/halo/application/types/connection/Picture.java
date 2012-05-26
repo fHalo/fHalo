@@ -1,5 +1,7 @@
 package com.facebook.halo.application.types.connection;
 
+import com.facebook.halo.framework.annotation.Facebook;
+
 /**
  * User Object connection
  * Page Object connection
@@ -9,7 +11,7 @@ package com.facebook.halo.application.types.connection;
  *
  */
 public class Picture {
-	
+	@Facebook()
 	String profilePictureUrl;
 
 	public String getProfilePicture() {

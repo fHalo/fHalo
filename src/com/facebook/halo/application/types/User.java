@@ -808,6 +808,17 @@ public class User extends NamedFacebookType implements UserInterface {
 		return facebookClient.fetchObject(id, User.class);
 	}
 
+	
+	/*********************************************************************
+	 * Connection methods
+	 * *******************************************************************/
+	
+
+	@Override
+	public String picture() {
+		return "https://graph.facebook.com/" + id + "/picture"; 
+	}
+
 	@Override
 	public Connection<Friends> friends() {
 		return facebookClient.fetchConnection(id + "/friends", Friends.class);
@@ -997,5 +1008,6 @@ public class User extends NamedFacebookType implements UserInterface {
 	public boolean delete(String objectId) {
 		return facebookClient.deleteObject(objectId);
 	}
+
 	
 }

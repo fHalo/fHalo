@@ -436,7 +436,7 @@ public class DefaultFacebookClient extends BaseFacebookClient implements Faceboo
    *           If an error occurs while making the Facebook API POST or
    *           processing the response.
    */
-  protected String makeRequest(String endpoint, final boolean executeAsPost, boolean executeAsDelete, final List<BinaryAttachment> binaryAttachments, Parameter... parameters) {
+  public String makeRequest(String endpoint, final boolean executeAsPost, boolean executeAsDelete, final List<BinaryAttachment> binaryAttachments, Parameter... parameters) {
     verifyParameterLegality(parameters);
 
     if (executeAsDelete)

@@ -7,7 +7,11 @@ import com.facebook.halo.application.handler.Delete;
 import com.facebook.halo.application.handler.Search;
 import com.facebook.halo.application.types.Album;
 import com.facebook.halo.application.types.Checkin.Place;
+import com.facebook.halo.application.types.Comment;
 import com.facebook.halo.application.types.Event;
+import com.facebook.halo.application.types.Post;
+import com.facebook.halo.application.types.Post.Comments;
+import com.facebook.halo.application.types.Post.Likes;
 import com.facebook.halo.application.types.User;
 import com.facebook.halo.application.types.connection.Checkins;
 import com.facebook.halo.application.types.connection.Feed;
@@ -17,7 +21,6 @@ import com.facebook.halo.application.types.fqlTable.FriendTable;
 import com.facebook.halo.application.types.infra.FacebookType;
 import com.facebook.halo.framework.common.AccessToken;
 import com.facebook.halo.framework.core.Connection;
-import com.facebook.halo.framework.core.DefaultFacebookClient;
 
 
 public class Example {
@@ -25,18 +28,34 @@ public class Example {
 	
 	public static void main(String args[]) {
 		
-		//set accessToken
-		AccessToken.setAccessToken("AAACEdEose0cBAPm7FGBQTWcINXZCdaWxygKmq8OAsBiH5lUZBXyxH3CWYWsO8HWMKOJUUYRvB08OGZCPeDJHS7KIiWQmBtGb1DzB6iDaGDg0LFbG7HY");
-		
+		//set accessToken (set your access token)
+		AccessToken.setAccessToken("AAADKBHCaudABABvD5liTEsvigGpiFi0WHxLohAuvp6QUE6F4KaUAhWETqtkFqVmTCxnWqiNIM1hWQy8V95o1Rct8I7zIBte1D8sgawZDZD");
 		//create instance of me
-		user = user.createInstance("me");
+		Post post = new Post();
 		
+		post = post.createInstance("100000877824590_400318026674121");
+		Likes likes = post.getLikes();
+		
+		
+	
 		//test method
-		getMyFeeds();
-		getMyFriends();
-		getMyInfo();
-		publishFeed();
-		likeObject();
+//		getMyFeeds();
+//		getMyFriends();
+//		getMyInfo();
+//		publishFeed();
+//		likeObject();
+	}
+	/**
+	 * get post's comment message
+	 */
+	public static void getComments() {
+		//create instance of me
+		Post post = new Post();
+		
+		post = post.createInstance("100000877824590_400318026674121");
+		Comments comments = post.getComments();
+		for(Comment c : comments.getData())
+			System.out.println(""+c.getMessage());
 	}
 		
 	/**

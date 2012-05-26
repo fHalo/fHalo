@@ -8,6 +8,7 @@ import com.facebook.halo.application.types.connection.Feed;
 import com.facebook.halo.application.types.connection.Friends;
 import com.facebook.halo.application.types.connection.Links;
 import com.facebook.halo.application.types.connection.Photos;
+import com.facebook.halo.application.types.connection.Picture;
 import com.facebook.halo.application.types.infra.FacebookType;
 import com.facebook.halo.framework.core.Connection;
 
@@ -30,6 +31,8 @@ public interface UserInterface {
 	public Connection<Album> albums();
 	
 	public Connection<Comment> comments(String objectId);
+	
+	public String picture();
 	/**
 	 * Picture URL
 	 * @param profileId
