@@ -31,14 +31,18 @@ public class Example {
 		//set accessToken (set your access token)
 		AccessToken.setAccessToken("AAADKBHCaudABABvD5liTEsvigGpiFi0WHxLohAuvp6QUE6F4KaUAhWETqtkFqVmTCxnWqiNIM1hWQy8V95o1Rct8I7zIBte1D8sgawZDZD");
 		//create instance of me
-		Post post = new Post();
+//		Post post = new Post();
+
+//		post = post.createInstance("100001345286735_359498797438293");
+//		Likes likes = post.getLikes();
+//		System.out.println("" + likes.getCount());
 		
-		post = post.createInstance("100000877824590_400318026674121");
-		Likes likes = post.getLikes();
+		
 		
 		
 	
 		//test method
+//		getComments();
 //		getMyFeeds();
 //		getMyFriends();
 //		getMyInfo();
@@ -54,6 +58,9 @@ public class Example {
 		
 		post = post.createInstance("100000877824590_400318026674121");
 		Comments comments = post.getComments();
+//		for(int i = 0; i < comments.getCount(); i++) {
+//			System.out.println(""+comments.getData().get(i).getMessage());
+//		}
 		for(Comment c : comments.getData())
 			System.out.println(""+c.getMessage());
 	}

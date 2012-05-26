@@ -47,4 +47,12 @@ public class NamedFacebookType extends FacebookType {
   public String getName() {
     return name;
   }
+  
+  /**
+   * get user's profile picture
+   * @return
+   */
+  public String getPicture() {
+	  return "https://graph.facebook.com/" + id + "/picture";
+  }
 }
