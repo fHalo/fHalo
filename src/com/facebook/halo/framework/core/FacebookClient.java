@@ -345,6 +345,8 @@ public interface FacebookClient {
   
   public boolean publishUndoLikes(String connection);
   
+  <T> boolean publishBoolean(String connection, ArrayList<Parameter> parameterList);
+  
   /**
    * Performs a <a href="http://developers.facebook.com/docs/api#deleting">Graph
    * API delete</a> operation on the given {@code object}.

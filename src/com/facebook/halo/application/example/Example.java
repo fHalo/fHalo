@@ -12,6 +12,7 @@ import com.facebook.halo.application.types.Event;
 import com.facebook.halo.application.types.Post;
 import com.facebook.halo.application.types.Post.Comments;
 import com.facebook.halo.application.types.Post.Likes;
+import com.facebook.halo.application.types.Tags;
 import com.facebook.halo.application.types.User;
 import com.facebook.halo.application.types.connection.Checkins;
 import com.facebook.halo.application.types.connection.Feed;
@@ -29,10 +30,10 @@ public class Example {
 	public static void main(String args[]) {
 		
 		//set accessToken (set your access token)
-		AccessToken.setAccessToken("AAACEdEose0cBAI5cvnXOLwCgCWf986qciqnuk9BQkv8m8RF7a2NZBmvUgNN5kC4ZA9ysK0XcheJPZAafhkneNsAPvFSnJnHSz9utW3ehkjesZBkZCPEcg");
-		user = user.createInstance("100001066448386");
+		AccessToken.setAccessToken("AAACEdEose0cBAEAbdSvrgfZCQ0ptr1ksbvjYVZCewkVYMBNTfxJlRtL3ZBZA9zFqHMfxglbMHFGyQpI6p3TPBUMZBUvr21nXnrAujgNEiuZAo1yAFaC0H3");
+		user = user.createInstance("100001428910089");
 		
-		user.publishUndoLikes("100002274717846_312388292180325");
+//		user.publishUndoLikes("100002274717846_312388292180325");
 		//create instance of me
 //		Post post = new Post();
 
@@ -40,10 +41,6 @@ public class Example {
 //		Likes likes = post.getLikes();
 //		System.out.println("" + likes.getCount());
 		
-		
-		
-		
-	
 		//test method
 //		getComments();
 //		getMyFeeds();
@@ -248,4 +245,24 @@ public class Example {
 		System.out.println("Checkins : " + type.getId());
 	}
 	
+	public static void publishPhotoTags(){
+		
+//		[{"tag_uid":"100002274717846","x":"70.0","y":"70.0","tag_text":"some person"},{"tag_uid":"100001066448386","x":"70.0","y":"70.0","tag_text":"some person"}]
+		ArrayList<Tags> tags = new ArrayList<Tags>();
+		Tags tag = new Tags();
+		tag.setTagUid("100002274717846");
+		tag.setX("20");
+		tag.setY("30");
+		tags.add(tag);
+		
+		tag = new Tags();
+		tag.setTagUid("100001066448386");
+		tag.setX("30");
+		tag.setY("40");
+		tags.add(tag);
+		
+		boolean aa = user.publishTagsAtPhoto("366801743377453", tags);
+		System.out.println(""+aa);
+		
+	}	
 }

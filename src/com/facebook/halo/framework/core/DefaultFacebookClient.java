@@ -705,4 +705,14 @@ public class DefaultFacebookClient extends BaseFacebookClient implements
 		 */
 		return DefaultFacebookUtils.toParameterString(parameters);
 	}
+
+	@Override
+	public <T> boolean publishBoolean(String connection, ArrayList<Parameter> parameterList) {
+		DefaultFacebookUtils.verifyParameterPresence("connection", connection);
+		Parameter[] parameters = new Parameter[parameterList.size()];
+		for (int i = 0; i < parameterList.size(); i++) {
+			parameters[i] = parameterList.get(i);
+		}
+		return "true".equals(makeRequest(connection, true, false, null, parameters));
+	}
 }

@@ -1004,6 +1004,32 @@ public class User extends NamedFacebookType implements UserInterface {
 		return facebookClient.publish("me/checkins", FacebookType.class, parameterList);
 	}
 	
+	public boolean publishTagsAtPhoto(String photoId, ArrayList<Tags> tags) {
+		
+		ArrayList<Parameter> parameterList = new ArrayList<Parameter>();
+		JsonArray jsonArray = new JsonArray();
+		for(Tags tag : tags){
+			JsonObject json = new JsonObject();
+			
+			if(tag.getTagUid() != null){
+				json.put(Arguments.PHOTO_TAGS.TAG_UID, tag.getTagUid());	
+			}
+			if(tag.getX() != null){
+				json.put(Arguments.PHOTO_TAGS.X, tag.getX());	
+			}
+			if(tag.getY() != null){
+				json.put(Arguments.PHOTO_TAGS.Y, tag.getY());	
+			}
+			if(tag.getTagText() != null){
+				json.put(Arguments.PHOTO_TAGS.TAG_TEXT, tag.getTagText());	
+			}
+			jsonArray.put(json);
+		}
+//		System.out.println(jsonArray.toString());
+		parameterList.add(Parameter.with(Arguments.PHOTO_TAGS.TAGS, jsonArray.toString()));
+		return facebookClient.publishBoolean(photoId + "/tags", parameterList);
+	}
+
 	/**
 	 * delete method
 	 * @param objectId

@@ -63,4 +63,15 @@ public class Arguments {
 		public final static String TAGS = "tags";
 		public final static String COORDINAGE = "coordinates";
 	}
+	
+	/**
+	 *  Photo Tags Tables
+	 */
+	public class PHOTO_TAGS {
+		public final static String TAGS = "tags";
+		public final static String TAG_UID = "tag_uid";
+		public final static String X = "x";
+		public final static String Y = "y";
+		public final static String TAG_TEXT = "tag_text";
+	}
 }
