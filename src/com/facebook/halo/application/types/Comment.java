@@ -29,6 +29,9 @@ import java.util.Date;
 import com.facebook.halo.application.types.infra.FacebookType;
 import com.facebook.halo.application.types.infra.NamedFacebookType;
 import com.facebook.halo.framework.annotation.Facebook;
+import com.facebook.halo.framework.common.AccessToken;
+import com.facebook.halo.framework.core.DefaultFacebookClient;
+import com.facebook.halo.framework.core.FacebookClient;
 
 /**
  * Represents the <a
@@ -38,54 +41,89 @@ import com.facebook.halo.framework.annotation.Facebook;
  * @author <a href="http://restfb.com">Mark Allen</a>
  * @since 1.5
  */
-public class Comment extends FacebookType {
-  @Facebook
-  private NamedFacebookType from;
+public class Comment extends FacebookType implements CommentInterface{
+	
+	private FacebookClient facebookClient;
 
-  @Facebook
-  protected String message;
+	@Facebook
+	private NamedFacebookType from;
 
-  @Facebook("created_time")
-  private String createdTime;
+	@Facebook
+	protected String message;
 
-  @Facebook
-  private Long likes;
+	@Facebook("created_time")
+	private String createdTime;
 
-  private static final long serialVersionUID = 1L;
-  
-  /**
-   * User who posted the comment.
-   * 
-   * @return User who posted the comment.
-   */
-  public NamedFacebookType getFrom() {
-    return from;
-  }
+	@Facebook
+	private Long likes;
 
-  /**
-   * Text contents of the comment.
-   * 
-   * @return Text contents of the comment.
-   */
-  public String getMessage() {
-    return message;
-  }
+	@Facebook("user_likes")
+	private boolean userLikes;
 
-  /**
-   * Date on which the comment was created.
-   * 
-   * @return Date on which the comment was created.
-   */
-  public Date getCreatedTime() {
-    return toDateFromLongFormat(createdTime);
-  }
+	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * Constructor
+	 */
+	public Comment() {
+		facebookClient = new DefaultFacebookClient(AccessToken.getAccessToken());
+	}
+	
 
-  /**
-   * The number of likes on this comment.
-   * 
-   * @return The number of likes on this comment.
-   */
-  public Long getLikes() {
-    return likes;
-  }
+	/**
+	 * User who posted the comment.
+	 * 
+	 * @return User who posted the comment.
+	 */
+	public NamedFacebookType getFrom() {
+		return from;
+	}
+
+	/**
+	 * Text contents of the comment.
+	 * 
+	 * @return Text contents of the comment.
+	 */
+	public String getMessage() {
+		return message;
+	}
+
+	/**
+	 * Date on which the comment was created.
+	 * 
+	 * @return Date on which the comment was created.
+	 */
+	public Date getCreatedTime() {
+		return toDateFromLongFormat(createdTime);
+	}
+
+	/**
+	 * The number of likes on this comment.
+	 * 
+	 * @return The number of likes on this comment.
+	 */
+	public Long getLikes() {
+		return likes;
+	}
+
+	/**
+	 * Is user like or not
+	 * 
+	 * @return Is user like or not
+	 */
+	public boolean getUserLikes() {
+		return userLikes;
+	}
+
+	/**
+	 * Comment instance return
+	 * 
+	 * @param id
+	 * @return User instance
+	 */
+	@Override
+	public Comment createInstance(String id) {
+		this.id = id;
+		return facebookClient.fetchObject(id, Comment.class);
+	}
 }

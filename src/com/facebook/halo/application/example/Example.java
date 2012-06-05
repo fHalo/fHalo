@@ -9,9 +9,9 @@ import com.facebook.halo.application.types.Album;
 import com.facebook.halo.application.types.Checkin.Place;
 import com.facebook.halo.application.types.Comment;
 import com.facebook.halo.application.types.Event;
+import com.facebook.halo.application.types.Page;
 import com.facebook.halo.application.types.Post;
 import com.facebook.halo.application.types.Post.Comments;
-import com.facebook.halo.application.types.Post.Likes;
 import com.facebook.halo.application.types.Tags;
 import com.facebook.halo.application.types.User;
 import com.facebook.halo.application.types.connection.Checkins;
@@ -30,8 +30,11 @@ public class Example {
 	public static void main(String args[]) {
 		
 		//set accessToken (set your access token)
-		AccessToken.setAccessToken("AAACEdEose0cBAEAbdSvrgfZCQ0ptr1ksbvjYVZCewkVYMBNTfxJlRtL3ZBZA9zFqHMfxglbMHFGyQpI6p3TPBUMZBUvr21nXnrAujgNEiuZAo1yAFaC0H3");
-		user = user.createInstance("100001428910089");
+		AccessToken.setAccessToken("AAACEdEose0cBAKDYjmtb9mlJ0j06ZCRXZARRLbshK0Q4j2dzrJYtxPDYTILMVfqNHrc6tni6EcMsgFeHDNZBJYgyxzwXOyPBOFoqV2j7PnF5aNxUHdv");
+		
+		Comment c = new Comment();
+		c = c.createInstance("100000103386284_481100088570100_112639959");
+		System.out.println(c.getUserLikes());
 		
 //		user.publishUndoLikes("100002274717846_312388292180325");
 		//create instance of me
