@@ -41,8 +41,9 @@ public interface UserInterface {
 	 */
 	public FacebookType publishFeed(String profileId, Feed feed);
 	
-	
 	public FacebookType publishComments(String objectId, Comments comments);
+	
+	public boolean publishUndoLikes(String objectId);
 	
 	public boolean publishLikes(String objectId);
 	/**

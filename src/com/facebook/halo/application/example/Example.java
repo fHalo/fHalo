@@ -29,7 +29,10 @@ public class Example {
 	public static void main(String args[]) {
 		
 		//set accessToken (set your access token)
-		AccessToken.setAccessToken("AAADKBHCaudABABvD5liTEsvigGpiFi0WHxLohAuvp6QUE6F4KaUAhWETqtkFqVmTCxnWqiNIM1hWQy8V95o1Rct8I7zIBte1D8sgawZDZD");
+		AccessToken.setAccessToken("AAACEdEose0cBAI5cvnXOLwCgCWf986qciqnuk9BQkv8m8RF7a2NZBmvUgNN5kC4ZA9ysK0XcheJPZAafhkneNsAPvFSnJnHSz9utW3ehkjesZBkZCPEcg");
+		user = user.createInstance("100001066448386");
+		
+		user.publishUndoLikes("100002274717846_312388292180325");
 		//create instance of me
 //		Post post = new Post();
 

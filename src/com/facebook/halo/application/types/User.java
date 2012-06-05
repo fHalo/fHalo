@@ -890,6 +890,11 @@ public class User extends NamedFacebookType implements UserInterface {
 //		return facebookClient.publish(objectId + "/likes", FacebookType.class);
 	}
 	
+	@Override
+	public boolean publishUndoLikes(String objectId) {
+		return facebookClient.publishUndoLikes(objectId + "/likes");
+	}
+
 	/**
 	 * The parameter link must be required (URL)
 	 * picture URL
@@ -1009,5 +1014,4 @@ public class User extends NamedFacebookType implements UserInterface {
 		return facebookClient.deleteObject(objectId);
 	}
 
-	
 }
