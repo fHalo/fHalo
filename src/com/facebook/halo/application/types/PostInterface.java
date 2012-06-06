@@ -22,5 +22,5 @@ public interface PostInterface {
 	 * get post's like connection
 	 * @return post's likes
 	 */
-	public Connection<NamedFacebookType> likes();
+	public Connection<NamedFacebookType> likePeople();
 }

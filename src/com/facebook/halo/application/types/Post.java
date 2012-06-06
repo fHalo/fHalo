@@ -724,7 +724,8 @@ public class Post extends NamedFacebookType {
 		return facebookClient.fetchConnection(id + "/comments", Comment.class);
 	}
 	
-	public Connection<NamedFacebookType> likes() {
+	public Connection<NamedFacebookType> likePeople() {
 		return facebookClient.fetchConnection(id + "/likes", NamedFacebookType.class);
 	}
+	
 }

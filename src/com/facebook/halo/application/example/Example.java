@@ -2,7 +2,6 @@ package com.facebook.halo.application.example;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.jar.Attributes.Name;
 
 import com.facebook.halo.application.handler.Delete;
 import com.facebook.halo.application.handler.Search;
@@ -10,9 +9,9 @@ import com.facebook.halo.application.types.Album;
 import com.facebook.halo.application.types.Checkin.Place;
 import com.facebook.halo.application.types.Comment;
 import com.facebook.halo.application.types.Event;
-import com.facebook.halo.application.types.Page;
 import com.facebook.halo.application.types.Post;
 import com.facebook.halo.application.types.Post.Comments;
+import com.facebook.halo.application.types.Post.Likes;
 import com.facebook.halo.application.types.Tags;
 import com.facebook.halo.application.types.User;
 import com.facebook.halo.application.types.connection.Checkins;
@@ -36,11 +35,21 @@ public class Example {
 		
 		Post p = new Post();
 		p = p.createInstance("1233102578_3213209649135");
-		Connection<NamedFacebookType> list = p.likes();
 		
-		for(List<NamedFacebookType> l : list)
-			for(NamedFacebookType n : l)
-				System.out.println(n.getName());
+		
+		Connection<NamedFacebookType> list = p.likePeople();
+		
+		for(int i = 0; i < p.getLikesCount(); i++) {
+			System.out.println(""+list.getData().get(i).getName());
+		}
+		
+		
+//		Connection<NamedFacebookType> list = p.likePeople();
+//		
+//		for(List<NamedFacebookType> l : list) {
+//			System.out.println(l);
+//		}
+				
 		
 //		Comment c = new Comment();
 //		c = c.createInstance("100000103386284_481100088570100_112639959");
