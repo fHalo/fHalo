@@ -31,9 +31,12 @@ import java.util.Date;
 import java.util.List;
 
 import com.facebook.halo.application.types.infra.CategorizedFacebookType;
+import com.facebook.halo.application.types.infra.FacebookType;
 import com.facebook.halo.application.types.infra.NamedFacebookType;
 import com.facebook.halo.framework.annotation.Facebook;
 import com.facebook.halo.framework.common.AccessToken;
+import com.facebook.halo.framework.common.Arguments;
+import com.facebook.halo.framework.common.Parameter;
 import com.facebook.halo.framework.core.Connection;
 import com.facebook.halo.framework.core.DefaultFacebookClient;
 import com.facebook.halo.framework.core.FacebookClient;
@@ -714,7 +717,6 @@ public class Post extends NamedFacebookType {
 		facebookClient = new DefaultFacebookClient(AccessToken.getAccessToken());
 	}
 
-	
 	public Post createInstance(String id) {
 		this.id = id;
 		return facebookClient.fetchObject(id, Post.class);
@@ -726,6 +728,15 @@ public class Post extends NamedFacebookType {
 	
 	public Connection<NamedFacebookType> likePeople() {
 		return facebookClient.fetchConnection(id + "/likes", NamedFacebookType.class);
+	}
+	
+	public FacebookType publishComment(String comment) {
+		ArrayList<Parameter> parameterList = new ArrayList<Parameter>();
+		if(!comment.equals("")){
+			parameterList.add(Parameter.with(Arguments.COMMENTS.MESSAGE, comment));
+		}
+		
+		return facebookClient.publish(id + "/comments", FacebookType.class, parameterList);
 	}
 	
 }
