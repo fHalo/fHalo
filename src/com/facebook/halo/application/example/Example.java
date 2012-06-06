@@ -2,6 +2,7 @@ package com.facebook.halo.application.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.jar.Attributes.Name;
 
 import com.facebook.halo.application.handler.Delete;
 import com.facebook.halo.application.handler.Search;
@@ -20,6 +21,7 @@ import com.facebook.halo.application.types.connection.Friends;
 import com.facebook.halo.application.types.connection.Photos;
 import com.facebook.halo.application.types.fqlTable.FriendTable;
 import com.facebook.halo.application.types.infra.FacebookType;
+import com.facebook.halo.application.types.infra.NamedFacebookType;
 import com.facebook.halo.framework.common.AccessToken;
 import com.facebook.halo.framework.core.Connection;
 
@@ -30,11 +32,19 @@ public class Example {
 	public static void main(String args[]) {
 		
 		//set accessToken (set your access token)
-		AccessToken.setAccessToken("AAACEdEose0cBAKDYjmtb9mlJ0j06ZCRXZARRLbshK0Q4j2dzrJYtxPDYTILMVfqNHrc6tni6EcMsgFeHDNZBJYgyxzwXOyPBOFoqV2j7PnF5aNxUHdv");
+		AccessToken.setAccessToken("AAACEdEose0cBAP9AJrosWCSphQUoQTfLYgIEZAVIAFi2c5gZA4E5sXkZB1WZB0MUkOCeCMjiIQRa4UUKZCb6r4YD4sI8LUw4dFZA8mpWdLaOePILr7jLDg");
 		
-		Comment c = new Comment();
-		c = c.createInstance("100000103386284_481100088570100_112639959");
-		System.out.println(c.getUserLikes());
+		Post p = new Post();
+		p = p.createInstance("1233102578_3213209649135");
+		Connection<NamedFacebookType> list = p.likes();
+		
+		for(List<NamedFacebookType> l : list)
+			for(NamedFacebookType n : l)
+				System.out.println(n.getName());
+		
+//		Comment c = new Comment();
+//		c = c.createInstance("100000103386284_481100088570100_112639959");
+//		System.out.println(c.getUserLikes());
 		
 //		user.publishUndoLikes("100002274717846_312388292180325");
 		//create instance of me

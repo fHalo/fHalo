@@ -714,12 +714,17 @@ public class Post extends NamedFacebookType {
 		facebookClient = new DefaultFacebookClient(AccessToken.getAccessToken());
 	}
 
+	
 	public Post createInstance(String id) {
 		this.id = id;
 		return facebookClient.fetchObject(id, Post.class);
 	}
 
-	public Connection<Comment> cmts() {
+	public Connection<Comment> comments() {
 		return facebookClient.fetchConnection(id + "/comments", Comment.class);
+	}
+	
+	public Connection<NamedFacebookType> likes() {
+		return facebookClient.fetchConnection(id + "/likes", NamedFacebookType.class);
 	}
 }
