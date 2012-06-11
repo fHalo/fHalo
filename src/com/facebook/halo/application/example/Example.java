@@ -11,7 +11,6 @@ import com.facebook.halo.application.types.Comment;
 import com.facebook.halo.application.types.Event;
 import com.facebook.halo.application.types.Post;
 import com.facebook.halo.application.types.Post.Comments;
-import com.facebook.halo.application.types.Post.Likes;
 import com.facebook.halo.application.types.Tags;
 import com.facebook.halo.application.types.User;
 import com.facebook.halo.application.types.connection.Checkins;
@@ -22,6 +21,7 @@ import com.facebook.halo.application.types.fqlTable.FriendTable;
 import com.facebook.halo.application.types.infra.FacebookType;
 import com.facebook.halo.framework.common.AccessToken;
 import com.facebook.halo.framework.core.Connection;
+import com.facebook.halo.application.types.Notifications;
 
 
 public class Example {
@@ -30,8 +30,11 @@ public class Example {
 	public static void main(String args[]) {
 		
 		//set accessToken (set your access token)
-		AccessToken.setAccessToken("AAACEdEose0cBAEAbdSvrgfZCQ0ptr1ksbvjYVZCewkVYMBNTfxJlRtL3ZBZA9zFqHMfxglbMHFGyQpI6p3TPBUMZBUvr21nXnrAujgNEiuZAo1yAFaC0H3");
+		AccessToken.setAccessToken("AAACEdEose0cBAJrdzNhWZCBKg2j24nGSOwZAW7bwZB6boZBegpxl8aSmZAIIxwp3tpjoMVySa4sSpwSQh4o37jwI119rmcw8LkCJZBd372eZBHHZAeVZARMtq");
 		user = user.createInstance("100001428910089");
+		Connection<Notifications> aa =  user.notifications();
+		
+		aa.getData();
 		
 //		user.publishUndoLikes("100002274717846_312388292180325");
 		//create instance of me
@@ -48,6 +51,7 @@ public class Example {
 //		getMyInfo();
 //		publishFeed();
 //		likeObject();
+//		publishPhotoTags();
 	}
 	/**
 	 * get post's comment message
@@ -261,8 +265,12 @@ public class Example {
 		tag.setY("40");
 		tags.add(tag);
 		
-		boolean aa = user.publishTagsAtPhoto("366801743377453", tags);
-		System.out.println(""+aa);
-		
+		boolean aa = user.publishTagsAtPhoto("373513729372921", tags);
+		System.out.println(""+aa);		
 	}	
+	
+	public static void Notifications(){
+		
+		
+	}
 }
