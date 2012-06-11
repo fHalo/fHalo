@@ -19,6 +19,7 @@ import com.facebook.halo.application.types.connection.Friends;
 import com.facebook.halo.application.types.connection.Photos;
 import com.facebook.halo.application.types.fqlTable.FriendTable;
 import com.facebook.halo.application.types.infra.FacebookType;
+import com.facebook.halo.application.types.infra.NamedFacebookType;
 import com.facebook.halo.framework.common.AccessToken;
 import com.facebook.halo.framework.core.Connection;
 import com.facebook.halo.application.types.Notifications;
@@ -30,6 +31,7 @@ public class Example {
 	public static void main(String args[]) {
 		
 		//set accessToken (set your access token)
+
 		AccessToken.setAccessToken("AAACEdEose0cBAJrdzNhWZCBKg2j24nGSOwZAW7bwZB6boZBegpxl8aSmZAIIxwp3tpjoMVySa4sSpwSQh4o37jwI119rmcw8LkCJZBd372eZBHHZAeVZARMtq");
 		user = user.createInstance("100001428910089");
 		Connection<Notifications> aa =  user.notifications();

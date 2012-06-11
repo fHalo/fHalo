@@ -18,7 +18,6 @@ public interface UserInterface {
 	 * @param id
 	 * @return User instance
 	 */
-	
 	public User createInstance(String id);
 
 	public Connection<Friends> friends();
