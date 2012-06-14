@@ -21,6 +21,7 @@ import com.facebook.halo.application.types.fqlTable.FriendTable;
 import com.facebook.halo.application.types.infra.FacebookType;
 import com.facebook.halo.framework.common.AccessToken;
 import com.facebook.halo.framework.core.Connection;
+import com.facebook.halo.application.types.Notifications;
 
 
 public class Example {
@@ -29,15 +30,21 @@ public class Example {
 	public static void main(String args[]) {
 		
 		//set accessToken (set your access token)
-		AccessToken.setAccessToken("AAADKBHCaudABABvD5liTEsvigGpiFi0WHxLohAuvp6QUE6F4KaUAhWETqtkFqVmTCxnWqiNIM1hWQy8V95o1Rct8I7zIBte1D8sgawZDZD");
+		AccessToken.setAccessToken("AAACEdEose0cBAJrdzNhWZCBKg2j24nGSOwZAW7bwZB6boZBegpxl8aSmZAIIxwp3tpjoMVySa4sSpwSQh4o37jwI119rmcw8LkCJZBd372eZBHHZAeVZARMtq");
+		user = user.createInstance("100001428910089");
+		Connection<Notifications> aa =  user.notifications();
 		
+		aa.getData();
 		
-		user = user.createInstance("100001066448386");
-
-		Connection<Friends> c = user.friends();
-		
-		for(int i = 0; i < c.getData().size(); i++)
-			System.out.println(c.getData().get(i).getName());
+//		AccessToken.setAccessToken("AAADKBHCaudABABvD5liTEsvigGpiFi0WHxLohAuvp6QUE6F4KaUAhWETqtkFqVmTCxnWqiNIM1hWQy8V95o1Rct8I7zIBte1D8sgawZDZD");
+//		
+//		
+//		user = user.createInstance("100001066448386");
+//
+//		Connection<Friends> c = user.friends();
+//		
+//		for(int i = 0; i < c.getData().size(); i++)
+//			System.out.println(c.getData().get(i).getName());
 		
 		//		Comment comment = new Comment();
 //		comment = comment.createInstance("100003162160041_238075626307841_4951757");
@@ -81,6 +88,7 @@ public class Example {
 //		getMyInfo();
 //		publishFeed();
 //		likeObject();
+//		publishPhotoTags();
 	}
 	/**
 	 * get post's comment message
@@ -294,8 +302,12 @@ public class Example {
 		tag.setY("40");
 		tags.add(tag);
 		
-		boolean aa = user.publishTagsAtPhoto("366801743377453", tags);
-		System.out.println(""+aa);
-		
+		boolean aa = user.publishTagsAtPhoto("373513729372921", tags);
+		System.out.println(""+aa);		
 	}	
+	
+	public static void Notifications(){
+		
+		
+	}
 }

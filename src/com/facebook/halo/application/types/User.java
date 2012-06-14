@@ -37,6 +37,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.management.Notification;
+
 import com.facebook.halo.application.types.connection.Albums;
 import com.facebook.halo.application.types.connection.Checkins;
 import com.facebook.halo.application.types.connection.Comments;
@@ -842,6 +844,11 @@ public class User extends NamedFacebookType implements UserInterface {
 	@Override
 	public Connection<Comment> comments(String objectId) {
 		return facebookClient.fetchConnection(objectId + "/comments", Comment.class);
+	}
+	
+	@Override
+	public Connection<Notifications> notifications() {
+		return facebookClient.fetchConnection(id + "/notifications", Notifications.class);
 	}
 	/**
 	 * Picture URL
