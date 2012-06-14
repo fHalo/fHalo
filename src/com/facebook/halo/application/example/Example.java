@@ -11,7 +11,6 @@ import com.facebook.halo.application.types.Comment;
 import com.facebook.halo.application.types.Event;
 import com.facebook.halo.application.types.Post;
 import com.facebook.halo.application.types.Post.Comments;
-import com.facebook.halo.application.types.Post.Likes;
 import com.facebook.halo.application.types.Tags;
 import com.facebook.halo.application.types.User;
 import com.facebook.halo.application.types.connection.Checkins;
@@ -20,7 +19,6 @@ import com.facebook.halo.application.types.connection.Friends;
 import com.facebook.halo.application.types.connection.Photos;
 import com.facebook.halo.application.types.fqlTable.FriendTable;
 import com.facebook.halo.application.types.infra.FacebookType;
-import com.facebook.halo.application.types.infra.NamedFacebookType;
 import com.facebook.halo.framework.common.AccessToken;
 import com.facebook.halo.framework.core.Connection;
 
@@ -31,17 +29,30 @@ public class Example {
 	public static void main(String args[]) {
 		
 		//set accessToken (set your access token)
-		AccessToken.setAccessToken("AAACEdEose0cBAP9AJrosWCSphQUoQTfLYgIEZAVIAFi2c5gZA4E5sXkZB1WZB0MUkOCeCMjiIQRa4UUKZCb6r4YD4sI8LUw4dFZA8mpWdLaOePILr7jLDg");
-		
-		Post p = new Post();
-		p = p.createInstance("1233102578_3213209649135");
+		AccessToken.setAccessToken("AAADKBHCaudABABvD5liTEsvigGpiFi0WHxLohAuvp6QUE6F4KaUAhWETqtkFqVmTCxnWqiNIM1hWQy8V95o1Rct8I7zIBte1D8sgawZDZD");
 		
 		
-		Connection<NamedFacebookType> list = p.likePeople();
+		user = user.createInstance("100001066448386");
+
+		Connection<Friends> c = user.friends();
 		
-		for(int i = 0; i < p.getLikesCount(); i++) {
-			System.out.println(""+list.getData().get(i).getName());
-		}
+		for(int i = 0; i < c.getData().size(); i++)
+			System.out.println(c.getData().get(i).getName());
+		
+		//		Comment comment = new Comment();
+//		comment = comment.createInstance("100003162160041_238075626307841_4951757");
+		
+		
+//		Connection<Comment> comments = p.comments();
+//        for(List<Comment> commentList: comments)
+//        	for(Comment c : commentList)
+//        		System.out.println(c.getMessage());
+		
+//		Connection<NamedFacebookType> list = p.likePeople();
+//		
+//		for(int i = 0; i < p.getLikesCount(); i++) {
+//			System.out.println(""+list.getData().get(i).getName());
+//		}
 		
 		
 //		Connection<NamedFacebookType> list = p.likePeople();
