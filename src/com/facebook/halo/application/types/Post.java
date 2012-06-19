@@ -56,6 +56,9 @@ public class Post extends NamedFacebookType {
 
 	@Facebook
 	protected String message;
+	
+	@Facebook
+	protected String name;
 
 	@Facebook
 	protected String picture;
@@ -525,6 +528,10 @@ public class Post extends NamedFacebookType {
 	 */
 	public String getPicture() {
 		return picture;
+	}
+	
+	public String getName() {
+		return name;
 	}
 
 	/**

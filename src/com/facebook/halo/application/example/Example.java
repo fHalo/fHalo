@@ -21,7 +21,6 @@ import com.facebook.halo.application.types.fqlTable.FriendTable;
 import com.facebook.halo.application.types.infra.FacebookType;
 import com.facebook.halo.framework.common.AccessToken;
 import com.facebook.halo.framework.core.Connection;
-import com.facebook.halo.application.types.Notifications;
 
 
 public class Example {
@@ -30,12 +29,17 @@ public class Example {
 	public static void main(String args[]) {
 		
 		//set accessToken (set your access token)
-		AccessToken.setAccessToken("AAACEdEose0cBAJrdzNhWZCBKg2j24nGSOwZAW7bwZB6boZBegpxl8aSmZAIIxwp3tpjoMVySa4sSpwSQh4o37jwI119rmcw8LkCJZBd372eZBHHZAeVZARMtq");
-		user = user.createInstance("100001428910089");
-		Connection<Notifications> aa =  user.notifications();
+		AccessToken.setAccessToken("AAACEdEose0cBAMKUjZA2vV6Ov8HxN9TRZAnmLgTr1jyqRIqIr4HVhVY2lBjTeKgmiYCn4snnZBlEW8kW13pU9GEkfVTRSTLFQnpRdrwN3QQ4N46vAAf");
+//		user = user.createInstance("100001428910089");
+		Post post = new Post();
+		post = post.createInstance("163828567082760");
 		
-		aa.getData();
+		System.out.println(""+post.getName());
 		
+//		Connection<Notifications> aa =  user.notifications();
+//		
+//		aa.getData();
+//		
 //		AccessToken.setAccessToken("AAADKBHCaudABABvD5liTEsvigGpiFi0WHxLohAuvp6QUE6F4KaUAhWETqtkFqVmTCxnWqiNIM1hWQy8V95o1Rct8I7zIBte1D8sgawZDZD");
 //		
 //		
