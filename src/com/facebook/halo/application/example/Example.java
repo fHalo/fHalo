@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.facebook.halo.application.handler.Delete;
 import com.facebook.halo.application.handler.Search;
+import com.facebook.halo.application.types.Action;
 import com.facebook.halo.application.types.Album;
 import com.facebook.halo.application.types.Checkin.Place;
 import com.facebook.halo.application.types.Comment;
@@ -29,12 +30,12 @@ public class Example {
 	public static void main(String args[]) {
 		
 		//set accessToken (set your access token)
-		AccessToken.setAccessToken("AAACEdEose0cBAMKUjZA2vV6Ov8HxN9TRZAnmLgTr1jyqRIqIr4HVhVY2lBjTeKgmiYCn4snnZBlEW8kW13pU9GEkfVTRSTLFQnpRdrwN3QQ4N46vAAf");
+		AccessToken.setAccessToken("AAADKBHCaudABAC0nfYwYUoftOAkQ8pdnbFNaMuimFGZAUZCiE0zHviOl334Q9DibJet5kOvGgw1ZAzwdOyZAZClrR1ApkYbYWOwVZCqZCa7I2tSc7Xj2FHF");
 //		user = user.createInstance("100001428910089");
-		Post post = new Post();
-		post = post.createInstance("163828567082760");
+		Action action = new Action();
+		System.out.println(""+action.publishAction("beautiful_promise", "donate", "campaign", "http://61.43.139.112/promise2.html"));
 		
-		System.out.println(""+post.getName());
+//		System.out.println(""+post.getName());
 		
 //		Connection<Notifications> aa =  user.notifications();
 //		
